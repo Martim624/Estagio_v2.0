@@ -18,7 +18,7 @@ const productsList: Products[] = [
   },
   {
     productName: "Eggs",
-    price: 1,
+    price: 1 * 0.1,
   },
   {
     productName: "Rice",
@@ -31,6 +31,8 @@ const productsList: Products[] = [
 ];
 
 const banknotes = [10, 20, 5];
+
+productsList.sort((a, b) => Number(a.price) - Number(b.price));
 
 const moneyTotal = banknotes.reduce(function (ac: number, a: number) {
   return ac + a;
@@ -53,14 +55,23 @@ let sumTotal = productsList
     return a + c;
   }); */
 
-console.log(productsList);
+let change = moneyTotal - sumTotal;
+let moneyKeep = change * 0.5;
+
 console.log(moneyTotal);
 console.log(sumTotal);
+console.log(productsList);
+
+// TO DO: the things she couldn't buy, what banknotes she will use
 
 if (moneyTotal >= sumTotal) {
-  console.log("She can buy everything!");
+  console.log(
+    `She have money to buy everything ${
+      change > 0
+        ? "and will recive " + change + " of change. She can keep " + moneyKeep
+        : "but dont have change"
+    }`
+  );
 } else {
   throw new Error("Go get money!");
 }
-
-// TO DO: Sort the list ( USE sort() ), discount on products, the things she couldn't buy, what banknotes she will use and if have change whats the change, money received by mom
