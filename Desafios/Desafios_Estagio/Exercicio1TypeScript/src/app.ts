@@ -1,6 +1,8 @@
 interface Products {
   productName: string;
   price: number;
+
+  discount?: number;
 }
 
 const productsList: Products[] = [
@@ -18,7 +20,9 @@ const productsList: Products[] = [
   },
   {
     productName: "Eggs",
-    price: 1 * 0.1,
+    price: 1,
+
+    discount: 0.1,
   },
   {
     productName: "Rice",
@@ -30,26 +34,33 @@ const productsList: Products[] = [
   },
 ];
 
-const banknotes = [10, 20, 5];
+const banknotes = [8, 0, 1];
 
-productsList.sort((a, b) => Number(a.price) - Number(b.price));
+for (const products of Object.values(productsList)) {
+  if (products.discount) {
+    products.price *= products.discount;
+  }
+}
 
 const moneyTotal = banknotes.reduce(function (ac: number, a: number) {
   return ac + a;
 }, 0);
 
+let sumTotal = productsList.reduce(function (total: number, i: Products) {
+  // https://appdividend.com/2022/01/29/javascript-array-reduce/ | https://www.typescriptlang.org/docs/handbook/2/functions.html
+  return total + i.price;
+}, 0);
+
+productsList.sort((a, b) => Number(a.price) - Number(b.price));
+
+/* 
 let sumTotal = productsList
   .map((obj) => obj.price)
   .reduce(function (a: number, c: number) {
     return a + c;
   }, 0);
 
-/* let test = productsList.reduce(function (total: number, i: Products) { // https://appdividend.com/2022/01/29/javascript-array-reduce/ | https://www.typescriptlang.org/docs/handbook/2/functions.html
-  console.log(`i: ${i.price}`);
-  return total + i.price;
-}, 0); */
-
-/* let sumTotal = productsList
+let sumTotal = productsList
   .map((obj) => obj.price)
   .reduce((a, c) => {
     return a + c;
@@ -57,10 +68,6 @@ let sumTotal = productsList
 
 let change = moneyTotal - sumTotal;
 let moneyKeep = change * 0.5;
-
-console.log(moneyTotal);
-console.log(sumTotal);
-console.log(productsList);
 
 // TO DO: the things she couldn't buy, what banknotes she will use
 
@@ -73,5 +80,7 @@ if (moneyTotal >= sumTotal) {
     }`
   );
 } else {
-  throw new Error("Go get money!");
+  console.log("She don't have money for everything");
 }
+
+console.log(productsList);
