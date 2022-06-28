@@ -218,7 +218,8 @@ login.addEventListener("click", function (e) {
   );
 
   if (testAccount) {
-    accountLogged = { ...testAccount, isLogged: true };
+    accountLogged = testAccount;
+    accountLogged.isLogged = true;
     closeModalLogin();
     loggedInterface();
     localStorage.setItem("users", JSON.stringify(users));
@@ -317,15 +318,19 @@ function displayDate(e: Event, type: string, days: string, change: string) {
       let platePrice = plates.find(
         (plate) => plate.Day == checkDay!.day && plate.Type == checkDay!.plate
       );
-      if (platePrice)
-        checkDay = { ...checkDay, plate: type, price: platePrice?.Price };
+      if (platePrice) {
+        checkDay!.plate = type;
+        checkDay!.price = platePrice.Price;
+      }
     } else {
       let platePrice = plates.find(
         (plate) => plate.Day == order.day && plate.Type == order.plate
       );
 
-      if (platePrice) order = { ...order, price: platePrice?.Price };
+      if (platePrice) order = { ...order, price: platePrice.Price };
 
+      console.log(checkDay);
+      console.log(order);
       accountLogged.orders.push(order);
     }
   } else {
@@ -395,6 +400,7 @@ function checkLogged() {
     logoutInterface();
   }
 }
+
 // Display Plates
 const displayPlates = function () {
   const containerPlates = document.querySelector(
