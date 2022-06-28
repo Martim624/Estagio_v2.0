@@ -318,9 +318,9 @@ function displayDate(e: Event, type: string, days: string, change: string) {
       let platePrice = plates.find(
         (plate) => plate.Day == checkDay!.day && plate.Type == checkDay!.plate
       );
+
       if (platePrice) {
-        checkDay!.plate = type;
-        checkDay!.price = platePrice.Price;
+        Object.assign(checkDay, { plate: type, price: platePrice.Price });
       }
     } else {
       let platePrice = plates.find(
@@ -329,8 +329,6 @@ function displayDate(e: Event, type: string, days: string, change: string) {
 
       if (platePrice) order = { ...order, price: platePrice.Price };
 
-      console.log(checkDay);
-      console.log(order);
       accountLogged.orders.push(order);
     }
   } else {
@@ -394,7 +392,7 @@ function checkLogged() {
   let testAccount = users.find((logged) => logged.isLogged);
 
   if (testAccount) {
-    accountLogged = { ...testAccount };
+    accountLogged = testAccount;
     loggedInterface();
   } else {
     logoutInterface();
