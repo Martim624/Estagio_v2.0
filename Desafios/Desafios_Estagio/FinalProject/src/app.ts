@@ -102,7 +102,6 @@ const plates: plate[] = [
 const btnScrollTo = document.querySelector(
   ".btn--scroll-to"
 )! as HTMLButtonElement;
-const section1 = document.querySelector("#section--1")!;
 
 // SCHEDULE
 const section3 = document.querySelector("#section--3")!;
@@ -239,6 +238,7 @@ logout.addEventListener("click", function (e) {
 
 // Scrolling
 btnScrollTo.addEventListener("click", function () {
+  const section1 = document.querySelector("#section--1")!;
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
