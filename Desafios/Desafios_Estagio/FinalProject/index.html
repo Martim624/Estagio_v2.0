@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="img/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Restaurant</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">About Us</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Menu</a>
+          </li>
+          <li class="nav__item schedule hidden">
+            <a class="nav__link" href="#section--3">Schedule</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn show" href="#"
+              >Login</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Register</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--logout" href="#"
+              >Log out</a
+            >
+          </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <h1>Restaurant</h1>
+        <h4>The best restaurant in town.</h4>
+        <button class="btn--text btn--scroll-to">About Us &DownArrow;</button>
+      </div>
+    </header>
+
+    <section class="section" id="section--1">
+      <div class="section__title">
+        <h2 class="section__description">About Us</h2>
+        <h3 class="section__header">Everything you need to know about us.</h3>
+      </div>
+
+      <div class="aboutus">
+        <div class="aboutus_aboutus">
+          <h5 class="aboutus__header">The begining</h5>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
+            sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
+            debitis ducimus.
+          </p>
+        </div>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section__title">
+        <h2 class="section__description">Menu</h2>
+      </div>
+      
+      
+      <div class="movements">
+        <div class="movements__row">
+          <div class="movements__type movements__type--deposit"></div>
+          <div class="movements__date"></div>
+          <div class="movements__value">a</div>
+        </div>
+        <div class="movements__row">
+          <div class="movements__type movements__type--withdrawal">
+            1 withdrawal
+          </div>
+          <div class="movements__date">24/01/2037</div>
+          <div class="movements__value">-378€</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" id="section--3">
+      <div class="section__title">
+        <h2 class="section__description">Schedule
+        </h2>
+        <label class="aboutus__header">Monday: </label>
+        <input class="checkbox" type="checkbox" id="MondayMeat">
+        <label for="meat1"> Meat</label>
+        <input class="checkbox" type="checkbox" id="MondayFish">
+        <label for="fish1"> Fish</label><br>
+
+        <label class="aboutus__header">Tuesday: </label>
+        <input class="checkbox" type="checkbox" id="TuesdayMeat">
+        <label for="meat1"> Meat</label>
+        <input class="checkbox" type="checkbox" id="TuesdayFish">
+        <label for="fish1"> Fish</label><br>
+
+        <label class="aboutus__header">Wednesday: </label>
+        <input class="checkbox" type="checkbox" id="WednesdayMeat">
+        <label for="meat1"> Meat</label>
+        <input class="checkbox" type="checkbox" id="WednesdayFish">
+        <label for="fish1"> Fish</label><br>
+
+        <label class="aboutus__header">Thursday: </label>
+        <input class="checkbox" type="checkbox" id="ThursdayMeat">
+        <label for="meat1"> Meat</label>
+        <input class="checkbox" type="checkbox" id="ThursdayFish">
+        <label for="fish1"> Fish</label><br>
+
+        <label class="aboutus__header">Friday: </label>
+        <input class="checkbox" type="checkbox" id="FridayMeat">
+        <label for="meat1"> Meat</label>
+        <input class="checkbox" type="checkbox" id="FridayFish">
+        <label for="fish1"> Fish</label><br>
+
+      <div class="summary">
+        <p class="summary__label">Total</p>
+        <p class="summary__value summary__value--in">0000€</p>
+      </div>
+    </div>
+    </section>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+       Register <br />
+      <form class="modal__form">
+        <label>First Name</label>
+        <input type="text" id="firstnameRegister"/>
+        <label>Email Address</label>
+        <input type="email" id="emailRegister"/>
+        <label>Password</label>
+        <input type="password" id="passwordRegister" />
+        <button class="btn--register">Register</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+
+    <div class="modal-login hidden">
+      <button class="btn--close-modal-login">&times;</button>
+      <h2 class="modal__header">
+       Login <br />
+      <form class="modal__form">
+        <label>Email Address</label>
+        <input type="email" id="emailLogin"/>
+        <label>Password</label>
+        <input type="password" id="passwordLogin" />
+        <button class="btn--login">Login</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+
+
+    <script defer src="dist/app.js"></script>
+  </body>
+</html>
