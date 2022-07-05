@@ -3,10 +3,12 @@ import { meal } from "../App";
 import "./Meals.css";
 
 const Meal = ({
+  key,
   name,
   meals,
   onChange,
 }: {
+  key: string;
   name: string;
   meals: meal[];
   onChange: (newPrice: number) => void;

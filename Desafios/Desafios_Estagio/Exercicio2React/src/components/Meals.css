@@ -1,31 +1,22 @@
 .expense-item {
-  display: flex;
   font-weight: 900;
   gap: 1rem;
-  align-items: center;
-  flex-flow: column-reverse;
+  align-items: left;
   justify-content: flex-start;
   flex: 1;
   color: rgb(7, 6, 6);
 }
 
 .expense-item-price {
-  display: flex;
   font-weight: bold;
   gap: 1rem;
-  align-items: center;
-  flex-flow: column-reverse;
-  justify-content: flex-start;
+  align-items: right;
   flex: 1;
   color: rgb(7, 6, 6);
 }
 
 .expense-item__description {
-  display: flex;
   gap: 1rem;
-  align-items: flex-end;
-  flex-flow: column-reverse;
-  justify-content: flex-start;
   flex: 1;
   color: rgb(7, 6, 6);
 }
@@ -57,7 +48,7 @@
 
 @media (min-width: 580px) {
   .expense-item__description {
-    align-items: center;
+    align-items: left;
     justify-content: flex-start;
     flex: 1;
   }

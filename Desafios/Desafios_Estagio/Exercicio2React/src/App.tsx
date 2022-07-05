@@ -10,12 +10,14 @@ export interface meal {
 }
 
 export interface day {
+  id: string;
   name: string;
   meals: meal[];
 }
 
 const daysArray: day[] = [
   {
+    id: "monday",
     name: "Monday",
     meals: [
       {
@@ -57,6 +59,7 @@ const daysArray: day[] = [
   },
 
   {
+    id: "tuesday",
     name: "Tuesday",
     meals: [
       {
@@ -98,6 +101,7 @@ const daysArray: day[] = [
   },
 
   {
+    id: "wednesday",
     name: "Wednesday",
     meals: [
       {
@@ -139,6 +143,7 @@ const daysArray: day[] = [
   },
 
   {
+    id: "thursday",
     name: "Thursday",
     meals: [
       {
@@ -180,6 +185,7 @@ const daysArray: day[] = [
   },
 
   {
+    id: "friday",
     name: "Friday",
     meals: [
       {
@@ -233,7 +239,7 @@ function App() {
       <div className="expenses-item">
         {daysArray.map((day) => (
           <Meals
-            key={day.name}
+            key={day.id}
             name={day.name}
             meals={day.meals}
             onChange={update}
